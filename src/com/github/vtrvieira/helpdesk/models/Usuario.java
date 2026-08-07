@@ -2,7 +2,7 @@ package com.github.vtrvieira.helpdesk.models;
 
 import java.util.Scanner;
 
-public class Usuario implements Comportamento{
+public class Usuario implements Comportamento {
     private String user;
     private String senha;
 
@@ -16,7 +16,7 @@ public class Usuario implements Comportamento{
     }
 
     @Override
-    public void autenticar() {
+    public boolean autenticar() { // Alterando para boolean
         for (int i = 2; i >= 0; i--) {
             var sc = new Scanner(System.in);
             System.out.println("==================");
@@ -29,10 +29,11 @@ public class Usuario implements Comportamento{
 
             if (userAuth.equals(user) && passAuth.equals(senha)) {
                 System.out.println("Bem-vind@, " + user + "!");
-                break;
+                return true; // Retornando true caso o login for autenticado
             } else {
                 System.out.println("Acesso negado. Restam " + i + " tentativas.");
             }
         }
+        return false; // Retornando falso caso não haja autenticação no login
     }
 }

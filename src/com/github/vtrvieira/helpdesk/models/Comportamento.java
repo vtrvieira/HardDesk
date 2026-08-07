@@ -1,5 +1,5 @@
 package com.github.vtrvieira.helpdesk.models;
 
 public interface Comportamento {
-    void autenticar();
+    boolean autenticar(); // Alterando a assinatura para boolean para criar a autenticação de fato
 }

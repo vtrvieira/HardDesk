@@ -19,7 +19,10 @@ public class Main {
         var senha = sc.nextLine();
         var user = new Usuario(usuario, senha);
         System.out.println("Cadastro realizado!");
-        user.autenticar();
+        if (!user.autenticar()){ // Adicionando uma condicional para caso não haja autenticação, o sistema encerrar
+            System.out.println("Você excedeu o limite de tentativas.");
+            return;
+        }
 
         System.out.print("Diga o tipo do seu chamado (Hardware / Software): ");
         var tipoChamado = sc.nextLine();
